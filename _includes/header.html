@@ -1,0 +1,65 @@
+{% assign default_paths = site.pages | map: "path" %}
+{% assign page_paths = site.header_pages | default: default_paths %}
+
+<section class="hero is-danger">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a href="{{ "/" | prepend: site.baseurl }}" class="navbar-item">
+            <img src="/images/default/logo_white.png" alt="ヤップンヤン">
+          </a>
+          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <div class="navbar-end">
+            <a href="{{ "/" | prepend: site.baseurl }}" class="navbar-item is-active">
+              Home
+            </a>
+            {% if page_paths %}
+                {% for path in page_paths %}
+                {% assign my_page = site.pages | where: "path", path | first %}
+                {% if my_page.title %}
+                  <a href="{{ my_page.url | relative_url }}" class="navbar-item">
+                      {{ my_page.title | escape }}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title">
+          {{ site.title | escape }}
+      </h1>
+      <h2 class="subtitle">
+          {{ site.subtitle | escape }}
+      </h2>
+    </div>
+  </div>
+
+  <!-- Hero footer: will stick at the bottom -->
+  <!-- <div class="hero-foot">
+    <nav class="tabs">
+      <div class="container">
+        <ul>
+          <li class="is-active"><a>Overview</a></li>
+          <li><a>Modifiers</a></li>
+          <li><a>Grid</a></li>
+          <li><a>Elements</a></li>
+          <li><a>Components</a></li>
+          <li><a>Layout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div> -->
+</section>
