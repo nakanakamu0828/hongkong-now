@@ -48,18 +48,17 @@
   </div>
 
   <!-- Hero footer: will stick at the bottom -->
-  <!-- <div class="hero-foot">
-    <nav class="tabs">
-      <div class="container">
-        <ul>
-          <li class="is-active"><a>Overview</a></li>
-          <li><a>Modifiers</a></li>
-          <li><a>Grid</a></li>
-          <li><a>Elements</a></li>
-          <li><a>Components</a></li>
-          <li><a>Layout</a></li>
-        </ul>
-      </div>
-    </nav>
-  </div> -->
+  {% if site.categories %}
+    <div class="hero-foot">
+      <nav class="tabs">
+        <div class="container">
+          <ul>
+            {% for category in site.categories %}
+              <li><a href="{{ '/categories/' | append: category[0] | relative_url }}"{% if page.category and category[0] == page.category %} class="is-active"{% endif %}>{{ category[0] }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </nav>
+    </div>
+  {% endif %}
 </section>

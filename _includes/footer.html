@@ -1,9 +1,9 @@
 <footer class="footer">
     <div class="container">
-        <h2 class="m-b-md">{{ site.title | escape }}</h2>
         <div class="columns is-desktop">
             <div class="column">
-              <div class="columns is-desktop">
+                <h2 class="m-b-md">{{ site.title | escape }}</h2>
+                <div class="columns is-desktop">
                 <div class="column m-b-md">
                     <figure class="image is-64x64 is-circle">
                         <img src="{{ site.profile_image }}">
@@ -22,6 +22,16 @@
               </div>
             </div>
             <div class="column">
+                {% if site.categories %}
+                  <h2 class="m-b-md">カテゴリー</h2>
+                  <p>
+                      {% for category in site.categories %}
+                        <a href="{{ '/categories/' | append: category[0] | relative_url }}" class="tag is-danger">
+                          {{ category[0] }}
+                        </a>
+                      {% endfor %}
+                  </p>
+                {% endif %}
             </div>
         </div>
         <div class="content has-text-centered">
