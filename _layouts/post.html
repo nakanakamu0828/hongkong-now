@@ -1,27 +1,73 @@
 ---
 layout: default
 ---
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="post h-entry" itemscope>
+    <section class="hero post-hero is-bold">
+      <div class="hero-body post-hero__body p-t-sm p-b-md">
+        <div class="container">
+          <nav class="breadcrumb" aria-label="breadcrumbs">
+            <ul style="margin-left: 0">
+              <li><a href="/"><i class="fas fa-home"></i></a></li>
+              <li class="is-active"><a href="#" aria-current="page">{{ page.title | escape }}</a></li>
+            </ul>
+          </nav>
+          <p class="m-b-xs">
+            <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+              {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+              <i class="fas fa-clock"></i>
+              {{ page.date | date: date_format }}
+            </time>
+          </p>
+          <h1 class="title m-b-xs" itemprop="name headline">{{ page.title | escape }}</h1>
+          {% if page.author or site.author or page.location %}
+            <p class="m-b-xs">
+              {% if page.author or site.author %}
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <span class="p-author h-card" itemprop="name">
+                    <i class="fas fa-user"></i>
+                    {% if page.author %}
+                      {{ page.author }}
+                    {% else if site.author %}
+                      {{ site.author }}
+                    {% endif %}
+                  </span>
+                </span>
+              {% endif %}
+              {% if page.location %}
+                &nbsp; <span itemprop="location" itemscope>
+                  <span class="p-author h-card" itemprop="name">
+                    <i class="fas fa-map-marker-alt"></i>
+                    {{ page.location }}
+                  </span>
+                </span>
+              {% endif %}
+            </p>
+          {% endif %}
+          {% if page.categories %}
+            <p>
+                {% for category in page.categories %}
+                  <span class="tag is-link">{{ category }}</span>
+                {% endfor %}
+            </p>
+          {% endif %}
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-        {{ page.date | date: date_format }}
-      </time>
-      {% if page.author %}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {% endif %}</p>
-  </header>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-  </div>
-
-  {% if site.disqus.shortname %}
-    {% include disqus_comments.html %}
-  {% endif %}
-
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-</article>
+          <img src="{{ page.thumbnail }}" alt=""></img>
+        </div>
+      </div>
+    </section>
+  
+    <section class="section">
+      <div class="container">  
+          <div class="content">
+            {{ content }}
+          </div>
+  
+          {% if site.disqus.shortname %}
+            {% include disqus_comments.html %}
+          {% endif %}
+  
+          <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+      </div>
+    </section>
+  </article>
+  
