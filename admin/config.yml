@@ -19,4 +19,5 @@ collections:
         widget: "image"
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Categories", name: "categories", widget: "list", required: false}
+      - {label: "Location", name: "location", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
