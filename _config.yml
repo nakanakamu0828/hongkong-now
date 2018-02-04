@@ -27,6 +27,8 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: nakanakamu0828
 profile_image: "/images/default/profile.jpg"
 
+google_analytics: UA-113488529-2
+
 # Build settings
 markdown: kramdown
 theme: minima
