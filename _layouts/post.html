@@ -8,10 +8,11 @@ layout: default
           <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul style="margin-left: 0">
               <li><a href="/"><i class="fas fa-home"></i></a></li>
+              <li class="is-active"><a href="#" aria-current="page">{{ page.categories[0] | escape }}</a></li>
               <li class="is-active"><a href="#" aria-current="page">{{ page.title | escape }}</a></li>
             </ul>
           </nav>
-          <p class="m-b-xs">
+          <p class="has-text-grey m-b-xs">
             <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
               {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
               <i class="fas fa-clock"></i>
@@ -20,7 +21,7 @@ layout: default
           </p>
           <h1 class="title m-b-xs" itemprop="name headline">{{ page.title | escape }}</h1>
           {% if page.author or site.author or page.location %}
-            <p class="m-b-xs">
+            <p class="m-b-xs has-text-grey">
               {% if page.author or site.author %}
                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                   <span class="p-author h-card" itemprop="name">
@@ -58,7 +59,7 @@ layout: default
   
     <section class="section">
       <div class="container">  
-          <div class="content">
+          <div class="content post-content">
             {{ content }}
           </div>
   
