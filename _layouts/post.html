@@ -7,8 +7,8 @@ layout: default
         <div class="container">
           <nav class="breadcrumb" aria-label="breadcrumbs">
             <ul style="margin-left: 0">
-              <li><a href="/"><i class="fas fa-home"></i></a></li>
-              <li class="is-active"><a href="#" aria-current="page">{{ page.categories[0] | escape }}</a></li>
+              <li><a href="{{ "/" | prepend: site.baseurl }}"><i class="fas fa-home"></i></a></li>
+              <li><a href="{{ "/categories/" | append: page.categories[0] | prepend: site.baseurl }}" aria-current="page">{{ page.categories[0] | escape }}</a></li>
               <li class="is-active"><a href="#" aria-current="page">{{ page.title | escape }}</a></li>
             </ul>
           </nav>
@@ -47,7 +47,9 @@ layout: default
           {% if page.categories %}
             <p class="m-b-xs">
                 {% for category in page.categories %}
-                  <span class="tag is-link">{{ category }}</span>
+                  <a href="{{ '/categories/' | append: category | relative_url }}" class="tag is-danger">
+                    {{ category }}
+                  </a>
                 {% endfor %}
             </p>
           {% endif %}
