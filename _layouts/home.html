@@ -22,7 +22,9 @@ layout: default
                     {% if post.categories %}
                       <p class="m-b-sm">
                         {% for category in post.categories %}
-                          <span class="tag is-danger">{{ category }}</span>
+                          <a href="{{ '/categories/' | append: category | relative_url }}" class="tag is-danger">
+                            {{ category }}
+                          </a>
                         {% endfor %}
                       </p>
                     {% endif %}
