@@ -27,7 +27,8 @@ url: "https://yapunyan.tk" # the base hostname & protocol for your site, e.g. ht
 twitter_username: nakanakamu0828
 profile_image: "/images/default/profile.jpg"
 
-google_analytics: UA-113488529-2
+google_analytics: 
+google_maps_embed_api_key: 
 
 # Build settings
 markdown: kramdown

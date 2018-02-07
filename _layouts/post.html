@@ -1,6 +1,15 @@
 ---
 layout: default
 ---
+<style>
+  #map {
+    width: 100%;
+    height: 400px;
+    background-color: grey;
+  }
+</style>
+
+
 <article class="post h-entry" itemscope>
     <section class="hero post-hero is-bold">
       <div class="hero-body post-hero__body p-t-sm p-b-md">
@@ -61,15 +70,25 @@ layout: default
   
     <section class="section">
       <div class="container">  
-          <div class="content post-content">
-            {{ content }}
+        <div class="columns">
+          <div class="column is-two-thirds">
+              <div class="content post-content">
+                {{ content }}
+              </div>
           </div>
+          <div class="column">
+              <iframe
+                height="400"
+                frameborder="0" style="border:0"
+                src="https://www.google.com/maps/embed/v1/place?key={{ site.env.GOOGLE_MAPS_EMBED_API_KEY }}&q={{ page.location }}" allowfullscreen>
+              </iframe>
+        </div>
   
-          {% if site.disqus.shortname %}
-            {% include disqus_comments.html %}
-          {% endif %}
-  
-          <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+        {% if site.disqus.shortname %}
+          {% include disqus_comments.html %}
+        {% endif %}
+
+        <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
       </div>
     </section>
   </article>

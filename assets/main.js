@@ -178,15 +178,17 @@ document.addEventListener('DOMContentLoaded', function () {
   var scrollFactor = 0;
   var currentTranslate = 0;
 
-  navbarBurger.addEventListener('click', function (el) {
-    navbarOpen = !navbarOpen;
-
-    if (navbarOpen) {
-      rootEl.classList.add('bd-is-clipped-touch');
-    } else {
-      rootEl.classList.remove('bd-is-clipped-touch');
-    }
-  });
+  if (navbarBurger) {
+    navbarBurger.addEventListener('click', function (el) {
+      navbarOpen = !navbarOpen;
+  
+      if (navbarOpen) {
+        rootEl.classList.add('bd-is-clipped-touch');
+      } else {
+        rootEl.classList.remove('bd-is-clipped-touch');
+      }
+    });  
+  }
 
   function upOrDown(lastY, currentY) {
     if (currentY >= lastY) {
@@ -236,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (translateValue != currentTranslate) {
       var navbarStyle = '\n        transform: translateY(' + translateValue + 'px);\n      ';
       currentTranslate = translateValue;
-      navbarEl.setAttribute('style', navbarStyle);
+      if (navbarEl) navbarEl.setAttribute('style', navbarStyle);
     }
 
     if (currentY > THRESHOLD * 2) {
@@ -248,8 +250,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     var translateFactor = 1 + translateValue / NAVBAR_HEIGHT;
-    specialShadow.style.opacity = scrollFactor;
-    specialShadow.style.transform = 'scaleY(' + translateFactor + ')';
+    if (specialShadow) {
+      specialShadow.style.opacity = scrollFactor;
+      specialShadow.style.transform = 'scaleY(' + translateFactor + ')';
+    }
   }
 
   translateHeader(window.scrollY, false);
