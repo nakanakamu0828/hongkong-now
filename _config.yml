@@ -21,7 +21,7 @@ author_name: なかむ
 description: >- # this means to ignore newlines until "baseurl:"
   香港生活3年目のなかむです。<br>
   日々の生活から香港の情報を投稿していきます。<br>
-  日本の皆さんが香港に旅行する際に役立つ情報を提供できればと思いいます。
+  日本の皆さんが香港に旅行する際に役立つ情報を提供できればと思います。
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://yapunyan.tk" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: nakanakamu0828
