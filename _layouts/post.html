@@ -53,15 +53,28 @@ layout: default
               {% endif %}
             </p>
           {% endif %}
-          {% if page.categories %}
-            <p class="m-b-xs">
-                {% for category in page.categories %}
+          <div class="columns">
+            {% if page.categories %}
+              <div class="column">
+                  {% for category in page.categories %}
                   <a href="{{ '/categories/' | append: category | relative_url }}" class="tag is-danger">
                     {{ category }}
                   </a>
                 {% endfor %}
-            </p>
-          {% endif %}
+              </div>
+            {% endif %}
+            <div class="column has-text-right-desktop">
+              <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ page.url | absolute_url }}&via={{ site.twitter_username }}&related={{ site.twitter_username }}" rel="nofollow" target="_blank" title="Share on Twitter" class="button is-social is-twitter is-circle">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://facebook.com/sharer.php?u={{ page.url | absolute_url }}" rel="nofollow" target="_blank" title="Share on Facebook" class="button is-social is-facebook is-circle">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://plus.google.com/share?url={{ page.url | absolute_url }}" rel="nofollow" target="_blank" title="Share on Google+" class="button is-social is-google-plus is-circle">
+                <i class="fab fa-google-plus-g"></i>
+              </a>
+            </div>
+          </div>
 
           <img src="{{ page.thumbnail }}" alt=""></img>
         </div>
