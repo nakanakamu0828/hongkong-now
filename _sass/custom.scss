@@ -188,6 +188,12 @@
 }
 
 @media only screen and (max-width: 480px) {
+  .hero-body__title {
+    font-size: 1.7rem;
+  }
+  .hero-body__subtitle {
+    font-size: 1.05rem;
+  }
   .post-card {
       width: 98%;
       max-width: 100%;
@@ -205,16 +211,16 @@
       width: 100%;
   }
   .post-card__content__title {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
   }
 
   .post-hero__body__title {
-      font-size: 1.4rem;
+      font-size: 1.1rem;
   }
 
   .content {
       h2 {
-          font-size: 1.25em;
+          font-size: 1.05em;
           margin-bottom: 0.5714em;
       }
   }

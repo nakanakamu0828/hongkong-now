@@ -46,14 +46,14 @@
   </div>
 
   <div class="hero-body">
-    <div class="container has-text-centered">
-      <h1 class="title">
+    <a href="{{ "/" | prepend: site.baseurl }}" class="container has-text-centered">
+      <h1 class="title hero-body__title">
           {{ site.title | escape }}
       </h1>
-      <h2 class="subtitle">
+      <h2 class="subtitle hero-body__subtitle">
           {{ site.subtitle | escape }}
       </h2>
-    </div>
+    </a>
   </div>
 
   <!-- Hero footer: will stick at the bottom -->
@@ -63,8 +63,13 @@
         <div class="container">
           <ul>
             {% for category in site.categories %}
-              <li><a href="{{ '/categories/' | append: category[0] | relative_url }}"{% if page.category and category[0] == page.category %} class="is-active"{% endif %}>{{ category[0] }}</a></li>
+              <li>
+                <a href="{{ '/categories/' | append: category[0] | relative_url }}"{% if page.category and category[0] == page.category %} class="is-active"{% endif %}>{{ category[0] }}</a>
+              </li>
             {% endfor %}
+            <li>
+                <a href="{{ '/curations/' | relative_url }}">ニュースキュレーション</a>
+            </li>
           </ul>
         </div>
       </nav>

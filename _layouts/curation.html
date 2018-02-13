@@ -1,38 +1,58 @@
 ---
 layout: default
 ---
+
 <article class="post h-entry" itemscope>
-  <section class="hero post-hero is-light is-bold">
-    <div class="hero-body post-hero__body p-t-sm p-b-md">
+  <section class="hero post-hero is-bold">
+    <div class="hero-body post-hero__body p-t-xs p-b-md">
       <div class="container">
         <nav class="breadcrumb" aria-label="breadcrumbs">
           <ul style="margin-left: 0">
-            <li><a href="/"><i class="fas fa-home"></i></a></li>
+            <li><a href="{{ "/" | prepend: site.baseurl }}"><i class="fas fa-home"></i></a></li>
             <li><a href="{{ "/curations/" | prepend: site.baseurl }}">ニュースキュレーション</a></li>
             <li class="is-active"><a href="#" aria-current="page">{{ page.title | escape }}</a></li>
           </ul>
         </nav>
-        <p class="post-meta">
+        <p class="has-text-grey m-b-xs">
           <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
             {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
             <i class="fas fa-clock"></i>
             {{ page.date | date: date_format }}
           </time>
         </p>
-        <span class="tag m-b-sm is-{{ page.media | replace: " ", "_" | downcase }}">{{ page.media }}からのキュレーション</span>
-        <h1 class="title post-hero__body__title　m-b-md" itemprop="name headline">
-          <a href="{{ page.target_link }}" target="_blank" rel="nofollow">{{ page.title | escape }}</a>
-        </h1>
-        <h2 class="m-b-md" itemprop="name headline">{{ page.description | escape }}</h2>
+        <h1 class="title post-hero__body__title m-b-sm" itemprop="name headline">{{ page.title | escape }}</h1>
+        {% if page.author or site.author or page.location %}
+          <p class="m-b-xs has-text-grey">
+            {% if page.author or site.author %}
+              <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                <span class="p-author h-card" itemprop="name">
+                  <i class="fas fa-user"></i>
+                  {% if page.author %}
+                    {{ page.author }}
+                  {% else if site.author %}
+                    {{ site.author }}
+                  {% endif %}
+                </span>
+              </span>
+            {% endif %}
+            {% if page.location %}
+              &nbsp; <span itemprop="location" itemscope>
+                <span class="p-author h-card" itemprop="name">
+                  <i class="fas fa-map-marker-alt"></i>
+                  {{ page.location }}
+                </span>
+              </span>
+            {% endif %}
+          </p>
+        {% endif %}
         <div class="columns">
           {% if page.tags %}
             <div class="column">
                 {% for tag in page.tags %}
-                  {% assign tag_name = tag | replace: " ", "_" %}
-                  <a href="{{ '/tags/' | append: tag_name | relative_url }}" class="tag is-link">
-                    {{ tag }}
-                  </a>
-                {% endfor %}
+                <span class="tag is-danger">
+                  {{ tag }}
+                </span>
+              {% endfor %}
             </div>
           {% endif %}
           <div class="column has-text-right-desktop">
@@ -47,21 +67,14 @@ layout: default
             </a>
           </div>
         </div>
+
+        <img src="{{ page.thumbnail }}" alt=""></img>
       </div>
     </div>
   </section>
 
   <section class="section p-t-sm">
     <div class="container">
-      {% if page.thumbnail %}
-        <div class="columns is-desktop">
-            <div class="column is-one-fifth"></div>
-            <div class="column is-one-quarte">
-                <img src="{{ page.thumbnail }}" alt=""></img>
-            </div>
-            <div class="column is-one-fifth"></div>
-        </div>
-      {% endif %}
       <div class="box">
         <div class="m-b-xs"><strong><i class="fas fa-comments"></i> コメント</strong></div>
         <div class="content">
