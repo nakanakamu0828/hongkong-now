@@ -28,7 +28,7 @@ layout: default
               {{ page.date | date: date_format }}
             </time>
           </p>
-          <h1 class="title m-b-xs" itemprop="name headline">{{ page.title | escape }}</h1>
+          <h1 class="title post-hero__body__title m-b-sm" itemprop="name headline">{{ page.title | escape }}</h1>
           {% if page.author or site.author or page.location %}
             <p class="m-b-xs has-text-grey">
               {% if page.author or site.author %}
