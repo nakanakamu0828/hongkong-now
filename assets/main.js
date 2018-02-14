@@ -274,4 +274,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     ticking = true;
   });
+
+
+  var $tabMenuLinks = getAll('.tabs-menu-link');
+  if ($tabMenuLinks.length > 0) {
+    $tabMenuLinks.forEach(function ($el) {
+      $el.addEventListener('click', function () {
+        var target = $el.dataset.target;
+        var $target = document.getElementById(target);
+        $target.classList.add('is-active');
+      });
+    });
+  }
+
 });

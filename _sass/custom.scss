@@ -187,6 +187,13 @@
     }
 }
 
+.navbar.navbar--subcategory-political_economy {
+    display: none;
+}
+.navbar.navbar--subcategory-political_economy.is-active {
+    display: block;
+}
+
 @media only screen and (max-width: 480px) {
   .hero-body__title {
     font-size: 1.7rem;

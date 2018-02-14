@@ -63,10 +63,24 @@
         <div class="container">
           <ul>
             {% for category in site.categories %}
-              <li>
-                <a href="{{ '/categories/' | append: category[0] | relative_url }}"{% if page.category and category[0] == page.category %} class="is-active"{% endif %}>{{ category[0] }}</a>
-              </li>
+              {% if 'レート' != category[0] %}
+                <li>
+                  <a href="{{ '/categories/' | append: category[0] | relative_url }}"{% if page.category and category[0] == page.category %} class="is-active"{% endif %}>{{ category[0] }}</a>
+                </li>
+              {% endif %}
             {% endfor %}
+            <li>
+              <div class="dropdown">
+                <div class="dropdown-trigger">
+                  <a href="javascript:void(0)" data-target="subCategoryPoliticalEconomyTab" class="tabs-menu-link">
+                    <span>政治・経済</span>
+                    <span class="icon is-small">
+                      <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </li>
             <li>
                 <a href="{{ '/curations/' | relative_url }}">ニュースキュレーション</a>
             </li>
@@ -76,3 +90,12 @@
     </div>
   {% endif %}
 </section>
+<nav id="subCategoryPoliticalEconomyTab" class="navbar has-shadow navbar--subcategory-political_economy">
+  <div class="container">
+    <div class="navbar-tabs">
+      <a href="{{ '/categories/レート' | relative_url }}" class="navbar-item is-tab">
+        レート
+      </a>
+    </div>
+  </div>
+</nav>
