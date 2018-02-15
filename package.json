@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "bulma": "^0.6.2"
+    "bulma": "^0.6.2",
+    "bulma-extensions": "^1.0.2"
   }
 }

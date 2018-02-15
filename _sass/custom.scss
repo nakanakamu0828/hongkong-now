@@ -143,6 +143,50 @@
     }
 }
 
+// 
+// Page
+// 
+.navbar--page .navbar-menu {
+    background-color: transparent;
+}
+.navbar--page .navbar-burger {
+    color: $white;
+}
+.navbar--page a.navbar-item {
+    color: $white;
+}
+.navbar--page a.navbar-item:hover {
+    background-color: transparent;
+    color: $white;
+    font-weight: bold;
+}
+
+.hero-body__title {
+    color: $white;
+}
+.hero-body__subtitle {
+    color: $white;
+}
+
+.tabs.hero-foot__tabs a {
+    color: $white;
+}
+.tabs.hero-foot__tabs a:hover {
+    color: $white;
+    font-weight: bold;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,.62);
+    padding: 25px;
+    cursor: default;
+    z-index: 110;
+}
+
 .post-card {
   width: 100%;
   max-width: 100%;

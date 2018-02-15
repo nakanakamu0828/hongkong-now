@@ -1,94 +1,117 @@
 {% assign default_paths = site.pages | map: "path" %}
 {% assign page_paths = site.header_pages | default: default_paths %}
 
-<section class="hero is-danger">
-  <div class="hero-head">
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-brand">
-          <a href="{{ "/" | prepend: site.baseurl }}" class="navbar-item">
-            <img src="/images/default/logo_white.png" alt="ヤップンヤン">
-          </a>
-          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
+<section class="hero is-medium has-carousel">
+    <div class="hero-carousel carousel-animated carousel-animate-fade">
+      <div class='carousel-container'>
+        <div class='carousel-item has-background is-active'>
+          <img class="is-background" src="/images/default/hong-kong-2568174_1920.jpg" alt="">
+          <div class="overlay"></div>
         </div>
-        <div id="navbarMenuHeroA" class="navbar-menu">
-          <div class="navbar-end">
-            <a href="{{ "/" | prepend: site.baseurl }}" class="navbar-item">
-              Home
-            </a>
-            {% if page_paths %}
-                {% for path in page_paths %}
-                {% assign my_page = site.pages | where: "path", path | first %}
-                {% if my_page.title %}
-                  <a href="{{ my_page.url | relative_url }}" class="navbar-item">
-                      {{ my_page.title | escape }}
-                  </a>
-                {% endif %}
-              {% endfor %}
-            {% endif %}
-            <a href="#" class="navbar-item modal-button" data-target="modal-mtr">
-              MTR
-            </a>
-            <a href="https://www.accuweather.com/ja/hk/hong-kong/1123655/daily-weather-forecast/1123655" class="navbar-item" target="_blank" rel="nofollow">
-              Weather
-            </a>
-            <a href="https://www.bloomberg.com/quote/HKDJPY:CUR" class="navbar-item" target="_blank" rel="nofollow">
-              Rate(HKD/JPY)
-            </a>
+        <div class='carousel-item has-background'>
+            <img class="is-background" src="/images/default/hong-kong-2568174_1920.jpg" alt="">
+            <div class="overlay"></div>
           </div>
-        </div>
+        <div class='carousel-item has-background'>
+            <img class="is-background" src="/images/default/hong-kong-2568174_1920.jpg" alt="">
+            <div class="overlay"></div>
+          </div>
       </div>
-    </nav>
-  </div>
-
-  <div class="hero-body">
-    <a href="{{ "/" | prepend: site.baseurl }}" class="container has-text-centered">
-      <h1 class="title hero-body__title">
-          {{ site.title | escape }}
-      </h1>
-      <h2 class="subtitle hero-body__subtitle">
-          {{ site.subtitle | escape }}
-      </h2>
-    </a>
-  </div>
-
-  <!-- Hero footer: will stick at the bottom -->
-  {% if site.categories %}
-    <div class="hero-foot">
-      <nav class="tabs">
+      <!-- <div class="carousel-navigation is-overlay">
+        <div class="carousel-nav-left">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        </div>
+        <div class="carousel-nav-right">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+        </div>
+      </div> -->
+    </div>
+    <div class="hero-head">
+      <nav class="navbar navbar--page is-transparent">
         <div class="container">
-          <ul>
-            {% for category in site.categories %}
-              {% if 'レート' != category[0] %}
-                <li>
-                  <a href="{{ '/categories/' | append: category[0] | relative_url }}"{% if page.category and category[0] == page.category %} class="is-active"{% endif %}>{{ category[0] }}</a>
-                </li>
-              {% endif %}
-            {% endfor %}
-            <li>
-              <div class="dropdown">
-                <div class="dropdown-trigger">
-                  <a href="javascript:void(0)" data-target="subCategoryPoliticalEconomyTab" class="tabs-menu-link">
-                    <span>政治・経済</span>
-                    <span class="icon is-small">
-                      <i class="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                  </a>
-                </div>
+          <div class="navbar-brand">
+            <a href="{{ "/" | prepend: site.baseurl }}" class="navbar-item">
+              <img src="/images/default/logo_white.png" alt="ヤップンヤン">
+            </a>
+            <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroA" class="navbar-menu">
+              <div class="navbar-end">
+                <a href="{{ "/" | prepend: site.baseurl }}" class="navbar-item">
+                  Home
+                </a>
+                {% if page_paths %}
+                    {% for path in page_paths %}
+                    {% assign my_page = site.pages | where: "path", path | first %}
+                    {% if my_page.title %}
+                      <a href="{{ my_page.url | relative_url }}" class="navbar-item">
+                          {{ my_page.title | escape }}
+                      </a>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+                <a href="#" class="navbar-item modal-button" data-target="modal-mtr">
+                  MTR
+                </a>
+                <a href="https://www.accuweather.com/ja/hk/hong-kong/1123655/daily-weather-forecast/1123655" class="navbar-item" target="_blank" rel="nofollow">
+                  Weather
+                </a>
+                <a href="https://www.bloomberg.com/quote/HKDJPY:CUR" class="navbar-item" target="_blank" rel="nofollow">
+                  Rate(HKD/JPY)
+                </a>
               </div>
-            </li>
-            <li>
-                <a href="{{ '/curations/' | relative_url }}">ニュースキュレーション</a>
-            </li>
-          </ul>
+          </div>
         </div>
       </nav>
     </div>
-  {% endif %}
+
+    <div class="hero-body">
+      <a href="{{ "/" | prepend: site.baseurl }}" class="container has-text-centered">
+        <h1 class="title hero-body__title">
+            {{ site.title | escape }}
+        </h1>
+        <h2 class="subtitle hero-body__subtitle">
+            {{ site.subtitle | escape }}
+        </h2>
+      </a>
+    </div>
+
+    {% if site.categories %}
+      <div class="hero-foot">
+        <nav class="tabs hero-foot__tabs">
+          <div class="container">
+            <ul>
+              {% for category in site.categories %}
+                {% if 'レート' != category[0] %}
+                  <li>
+                    <a href="{{ '/categories/' | append: category[0] | relative_url }}"{% if page.category and category[0] == page.category %} class="is-active"{% endif %}>{{ category[0] }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+              <li>
+                <div class="dropdown">
+                  <div class="dropdown-trigger">
+                    <a href="javascript:void(0)" data-target="subCategoryPoliticalEconomyTab" class="tabs-menu-link">
+                      <span>政治・経済</span>
+                      <span class="icon is-small">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </li>
+              <li>
+                  <a href="{{ '/curations/' | relative_url }}">ニュースキュレーション</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    {% endif %}
 </section>
 <nav id="subCategoryPoliticalEconomyTab" class="navbar has-shadow navbar--subcategory-political_economy">
   <div class="container">
