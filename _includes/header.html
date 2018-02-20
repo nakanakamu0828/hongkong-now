@@ -89,7 +89,7 @@
           <div class="container">
             <ul>
               {% for category in site.categories %}
-                {% if 'レート' != category[0] %}
+                {% if 'レート' != category[0] and 'ハンセン指数' != category[0] %}
                   <li>
                     <a href="{{ '/categories/' | append: category[0] | relative_url }}"{% if page.category and category[0] == page.category %} class="is-active"{% endif %}>{{ category[0] }}</a>
                   </li>
@@ -121,6 +121,9 @@
     <div class="navbar-tabs">
       <a href="{{ '/categories/レート' | relative_url }}" class="navbar-item is-tab">
         レート
+      </a>
+      <a href="{{ '/categories/ハンセン指数' | relative_url }}" class="navbar-item is-tab">
+        ハンセン指数
       </a>
     </div>
   </div>
